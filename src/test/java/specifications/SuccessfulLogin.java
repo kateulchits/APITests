@@ -1,4 +1,4 @@
-package api;
+package specifications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SuccessRegistration {
+public class SuccessfulLogin {
 
-    private Integer id;
-    private String token;
+    public String token;
 
 }

@@ -1,4 +1,4 @@
-package api;
+package specifications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UnSuccessRegistration {
+public class Register {
 
-    private String error;
+    private String email;
+    private String password;
 
 }

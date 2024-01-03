@@ -1,4 +1,4 @@
-package api;
+package specifications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Register {
+public class UserTimeData {
 
-    private String email;
-    private String password;
+    private String name;
+    private String job;
 
 }

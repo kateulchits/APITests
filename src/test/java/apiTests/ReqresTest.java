@@ -1,16 +1,14 @@
-package api;
+package apiTests;
 
+import specifications.*;
 import io.qameta.allure.Description;
 import org.assertj.core.api.Assertions;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.emptyString;
@@ -27,7 +25,7 @@ public class ReqresTest {
                 (Specifications.requestSpecification(URL),Specifications.responseSpecificationUnique(200));
         List<UserData> users = given()
                 .when()
-                .get("api/users?page=2")
+                .get("specifications/users?page=2")
                 .then().log().headers()
                 .extract().body().jsonPath().getList("data",UserData.class);
 
@@ -40,7 +38,7 @@ public class ReqresTest {
                 (Specifications.requestSpecification(URL), Specifications.responseSpecificationUnique(200));
         List<UserData> allUsers= given()
                 .when()
-                .get("api/users?page=2")
+                .get("specifications/users?page=2")
                 .then().log().all()
                         .extract().body().jsonPath().getList("data", UserData.class);
 
@@ -53,7 +51,7 @@ public class ReqresTest {
                 (Specifications.requestSpecification(URL), Specifications.responseSpecificationUnique(404));
                 given()
                         .when()
-                        .get("api/users/23")
+                        .get("specifications/users/23")
                         .then().log().all();
     }
 
@@ -67,7 +65,7 @@ public class ReqresTest {
         SuccessRegistration successRegistration = given()
                 .body(user)
                 .when()
-                .post("api/register")
+                .post("specifications/register")
                 .then().log().all()
                 .extract().as(SuccessRegistration.class);
 
@@ -83,7 +81,7 @@ public class ReqresTest {
         UnSuccessRegistration unSuccessRegistration = given()
                 .body(user)
                 .when()
-                .post("api/register")
+                .post("specifications/register")
                 .then().log().all()
                 .extract().as(UnSuccessRegistration.class);
 
@@ -97,7 +95,7 @@ public class ReqresTest {
                 (Specifications.requestSpecification(URL),Specifications.responseSpecificationUnique(200));
         List<String> years = given()
                 .when()
-                .get("api/unknown")
+                .get("specifications/unknown")
                 .then().log().all()
                 .extract().body().jsonPath().getList("years", String.class);
         Assertions.assertThat(years).isSorted();
@@ -105,7 +103,7 @@ public class ReqresTest {
         //OR
         List<ColorData> data = given()
                 .when()
-                .get("api/unknown")
+                .get("specifications/unknown")
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", ColorData.class);
 
@@ -120,7 +118,7 @@ public class ReqresTest {
                 (Specifications.requestSpecification(URL),Specifications.responseSpecificationUnique(204));
         given()
                 .when()
-                .delete("api/users/2")
+                .delete("specifications/users/2")
                 .then().log().all()
                 .body(is(emptyString()));
     }
@@ -134,7 +132,7 @@ public class ReqresTest {
         UserTimeResponse response = given()
                 .body(user)
                 .when()
-                .put("api/users/2")
+                .put("specifications/users/2")
                 .then().log().all()
                 .extract().as(UserTimeResponse.class);
 
@@ -153,7 +151,7 @@ public class ReqresTest {
             given()
                 .body(user)
                 .when()
-                .post("api/users")
+                .post("specifications/users")
                 .then().log().all();
     }
 
@@ -165,7 +163,7 @@ public class ReqresTest {
         SuccessfulLogin login = given()
                 .body(user)
                 .when()
-                .post("api/login")
+                .post("specifications/login")
                 .then().log().all()
                 .extract().as(SuccessfulLogin.class);
 

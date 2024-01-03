@@ -1,4 +1,4 @@
-package api;
+package specifications;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserData {
+public class ColorData {
+
     private Integer id;
-    private String email;
-    private String first_name;
-    private String last_name;
-    private String avatar;
+    private String name;
+    private Integer year;
+    private String color;
+    private String pantone_value;
 
 }
