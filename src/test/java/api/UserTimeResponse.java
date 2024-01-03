@@ -1,16 +1,14 @@
 package api;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserTimeResponse extends UserTimeData{
-    public UserTimeResponse(){}
 
     private String updatedAt;
 
-    public UserTimeResponse(String name, String job, String updateAt) {
-        super(name, job);
-        this.updatedAt = updateAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
 }

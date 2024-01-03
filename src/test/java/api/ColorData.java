@@ -1,7 +1,13 @@
 package api;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ColorData {
-    public ColorData() {}
 
     private Integer id;
     private String name;
@@ -9,31 +15,4 @@ public class ColorData {
     private String color;
     private String pantone_value;
 
-    public ColorData(Integer id, String name, Integer year, String color, String pantone_value) {
-        this.id = id;
-        this.name = name;
-        this.year = year;
-        this.color = color;
-        this.pantone_value = pantone_value;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getPantone_value() {
-        return pantone_value;
-    }
 }

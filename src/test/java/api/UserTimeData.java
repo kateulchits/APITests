@@ -1,21 +1,15 @@
 package api;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserTimeData {
-    public UserTimeData() {}
 
     private String name;
     private String job;
 
-    public UserTimeData(String name, String job) {
-        this.name = name;
-        this.job = job;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getJob() {
-        return job;
-    }
 }

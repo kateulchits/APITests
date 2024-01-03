@@ -9,23 +9,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class Specifications {
-    //спецификация позволяет не указывать в каждом методе адрес и тип ответа
     public static RequestSpecification requestSpecification(String URL) {
         return new RequestSpecBuilder()
                 .setBaseUri(URL)
                 .setContentType(ContentType.JSON)
-                .build();// то какая ссылка будет базовой
-    }
-
-    public static ResponseSpecification responseSpecificationOK200() {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .build();
-    }
-
-    public static ResponseSpecification responseSpecificationError400() {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(400)
                 .build();
     }
 
